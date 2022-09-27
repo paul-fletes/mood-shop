@@ -19,6 +19,11 @@ body {
     list-style: none;
 }
 
+nav {
+    background-color: cadetblue;
+    font-size: 20px;
+}
+
 .page-header a {
     display: block;
     padding: 0.5em;
