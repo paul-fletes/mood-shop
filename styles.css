@@ -10,6 +10,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     background-color: bisque;
+    padding-left: 5%;
 }
 
 .page-header ul {
@@ -22,10 +23,49 @@ body {
 nav {
     background-color: cadetblue;
     font-size: 20px;
+    padding-right: 5%;
+    width: 400px;
 }
 
 .page-header a {
     display: block;
     padding: 0.5em;
     text-decoration: none;
+}
+
+.items {
+    width: 80%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+}
+
+.item {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.items img {
+    width: 100%;
+    height: auto;
+}
+
+.item button {
+    border: none;
+    background-color: rgb(163, 213, 215);
+    font-family: inherit;
+    padding: 5;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.item p {
+    padding: 5px;
+}
+
+/*nth-child(2) was the description! Not the price like tutorial listed. Ask about this.*/
+.item p:nth-child(3) {
+    color: rgba(71, 145, 63, 0.966);
 }
