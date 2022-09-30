@@ -73,6 +73,14 @@ function showItems() {
     // ex: cartTotal.innerHTML = `<p>...</p>` because we did that for itemStr.
     cartTotal.innerHTML = `Cart total is: $${getTotal()}.`
 }
+const allItemsButton = Array.from(document.querySelectorAll('button'));
+console.log(allItemsButton)
+
+// Add event listeners for each button:
+allItemsButton.forEach(elem => elem.addEventListener('click', () => {
+    addItem(elem.getAttribute('id'), elem.getAttribute('data-price'))
+    showItems()
+}))
 
 // Get item quntatity: 
 function getQty() {
@@ -108,15 +116,4 @@ function removeItem(name, qty = 0) {
     }
 }
 
-// Function testing: 
-addItem('Apple', 0.99);
-addItem('Orange', 1.29);
-addItem('Opinion', 0.02);
-addItem('Apple', 0.99);
-addItem('Frisbee', 9.99);
-addItem('Apple', 0.99);
-addItem('Orange', 1.29);
-showItems();
-removeItem('Apple', 1);
-removeItem('Frisbee');
-showItems();
+// Function testing:
