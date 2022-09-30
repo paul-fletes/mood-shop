@@ -27,7 +27,7 @@ for (let i = 0; i < data.length; i += 1) {
 
 const cart = [];
 
-
+// Add item: 
 function addItem(name, price) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].name === name) {
@@ -39,6 +39,7 @@ function addItem(name, price) {
     cart.push(item);
 }
 
+// Show item with total amount:
 function showItems() {
     console.log(`You have ${getQty()} items in your cart.`);
 
@@ -49,6 +50,7 @@ function showItems() {
     console.log(`Cart total is: $${getTotal()}.`)
 }
 
+// Get item quntatity: 
 function getQty() {
     let qty = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -57,6 +59,7 @@ function getQty() {
     return qty
 }
 
+// Get total amount:
 function getTotal() {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -65,6 +68,23 @@ function getTotal() {
     return total.toFixed(2)
 }
 
+// Remove item: 
+function removeItem(name, qty = 0) {
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            if (qty > 0) {
+                cart[i].qty--
+            }
+            if (cart[i].qty < 1 || qty === 0) {
+                cart.splice(i, 1)
+            }
+            //cart.splice(i, 1);
+            return
+        }
+    }
+}
+
+// Function testing: 
 addItem('Apple', 0.99);
 addItem('Orange', 1.29);
 addItem('Opinion', 0.02);
@@ -72,4 +92,7 @@ addItem('Apple', 0.99);
 addItem('Frisbee', 9.99);
 addItem('Apple', 0.99);
 addItem('Orange', 1.29);
+showItems();
+removeItem('Apple');
+removeItem('Frisbee');
 showItems();
